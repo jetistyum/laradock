@@ -48,7 +48,6 @@ It's like Laravel Homestead but for Docker instead of Vagrant.
 		- [Run a Docker Virtual Host](#Run-Docker-Virtual-Host)
 		- [Find your Docker IP Address](#Find-Docker-IP-Address)
 		- [Use custom Domain](#Use-custom-Domain)
-		- [Debugging](#debugging)
 - [Help & Questions](#Help)
 
 
@@ -243,11 +242,15 @@ DB_HOST=xxx.xxx.xxx.xxx
 5 - Open your browser and visit your `{Docker-IP}` address (`http://xxx.xxx.xxx.xxx`).
 
 
+<br>
+**Debugging**: in case you faced an error here, run this command from the Laravel root directory:
+
+```bash
+sudo chmod -R 777 storage && sudo chmod -R 777 bootstrap/cache
+```
 
 <br>
-**Debugging**: if you are facing any problem here check the [Debugging](#debugging) section.
-
-If you need a special support. Contact me, more details in the [Help & Questions](#Help) section.
+If you have any problem, or need a special support. Feel free to contact me, more details in the [Help & Questions](#Help) secion.
 
 
 <br>
@@ -444,17 +447,21 @@ docker logs {container-name}
 
 1 - First you need to enter the Workspace Container.
 
-2 - Install Laravel.
+2 - Install Laravel anyway you like.
+
+Example using the Laravel Installer:
+
+```bash
+laravel new my-cool-app
+```
 
 Example using Composer
 
 ```bash
-composer create-project laravel/laravel my-cool-app "5.2.*"
+composer create-project laravel/laravel my-cool-app "5.1.*"
 ```
 
-> We recommand using `composer create-project` instead of the Laravel installer, to install Laravel.
-
-For more about the Laravel installation click [here](https://laravel.com/docs/master#installing-laravel).
+For more about this check out this [link](https://laravel.com/docs/master#installing-laravel).
 
 
 3 - Edit `docker-compose.yml` to Map the new application path:
@@ -713,8 +720,6 @@ eval $(docker-machine env)
 
 **On Windows & MAC:** 
 
-Run this command in your terminal:
-
 ```bash
 docker-machine ip default
 ```
@@ -722,20 +727,30 @@ If your Host name is different then `default`, you have to specify it (`docker-m
 
 *(The default IP is 192.168.99.100)*
 
-<br>
-
 > **boot2docker** users: run `boot2docker ip` *(when boot2docker is up)*.
 
 <br>
 **On Linux:** 
 
-Run this command in your terminal:
+1 - Run `ifconfig` in the terminal.
+
+2 - In the result search for `docker0`, your IP address will be next to `inet addr`.
+
+Example: (In this example your IP address is `172.17.0.1`).
 
 ```shell
-ifconfig docker0 | grep 'inet' | cut -d: -f2 | awk '{ print $1}' | head -n1
+docker0   Link encap:Ethernet  HWaddr 02:42:41:2d:c4:24
+          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 ```
+>If you have an easier way to do it, share it with us.
 
-*(The default IP is 172.17.0.1)*
+
+
 
 
 
@@ -770,24 +785,6 @@ server_name laravel.dev;
 ```
 
 
-<br>
-<a name="debugging"></a>
-### Debugging
-
-*Here's a list of the common problems you might face, and the possible solutions.*
-
-#### + I see a blank (white) page instead of the Laravel 'Welcome' page!
-
-run this command from the Laravel root directory:
-
-```bash
-sudo chmod -R 777 storage bootstrap/cache
-```
-
-#### + I see "Welcome to nginx" instead of the Laravel App!
-
-use `http://127.0.0.1` instead of `http://localhost` in your browser.
-
 
 
 
@@ -801,21 +798,30 @@ use `http://127.0.0.1` instead of `http://localhost` in your browser.
 
 This little project was built by one man who has a full time job and many responsibilities, so if you like this project and you find that it needs a bug fix or support for new software or upgrade any container, or anything else.. Do not hesitate to contribute, you are more than welcome :)
 
+## Support
+
+To suggest a features or report a bug, open a new [Issue](https://github.com/laradock/laradock/issues).
+
+
 
 <a name="Help"></a>
 ## Help & Questions
 
-If you need any help with Docker and Laravel, you can schedule a live call with the creator of this project at [Codementor.io](https://www.codementor.io/mahmoudz), He would love to help.
+If you need help with anything related to this project, shedule a live call with me on [Codementor](https://www.codementor.io/mahmoudz), I'd love to help.
 
-For general questions you can open [Issues](https://github.com/laradock/laradock/issues) here on Github (We will label them as questions).
-
-Additionally, you can contact Mahmoud Zalt (the creator of this project) via a direct message on LaraChat, (his username is `mahmoud_zalt`). Or send him an email (`mahmoud@zalt.me`).
+If you have a short question, send me a direct message on LaraChat, my username is `mahmoud_zalt`. Or send me an email on `mahmoud@zalt.me`.
 
 
 ## Credits
 
-- [Mahmoud Zalt](https://github.com/Mahmoudz) (Twitter [@Mahmoud_Zalt](https://twitter.com/Mahmoud_Zalt))
-- [Awesome list of contributors](https://github.com/LaraDock/laradock/graphs/contributors)
+[![Mahmoud Zalt](https://img.shields.io/badge/Author-Mahmoud%20Zalt-orange.svg)](http://www.zalt.me)
+
+Twitter: [@Mahmoud_Zalt](https://twitter.com/Mahmoud_Zalt)
+<br>
+Website: [http://zalt.me](http://zalt.me)
+<br>
+Email: `mahmoud@zalt.me`
+
 
 ## License
 

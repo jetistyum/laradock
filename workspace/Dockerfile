@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
 RUN add-apt-repository -y \
     ppa:ondrej/php
 
-# Install PHP-CLI 7, some PHP extentions and some useful Tools with APT
-RUN apt-get update && apt-get install -y --force-yes \
+# Install PHP-CLI 7, some PHP extentions and some useful Tools with APT, dodao php7.0-dev
+RUN apt-get update && apt-get install -y \
         php7.0-cli \
         php7.0-common \
         php7.0-curl \
@@ -29,11 +29,10 @@ RUN apt-get update && apt-get install -y --force-yes \
         php7.0-mbstring \
         php7.0-mcrypt \
         php7.0-mysql \
-        php7.0-pgsql \
         php7.0-sqlite \
         php7.0-sqlite3 \
-        php7.0-zip \
-        php7.0-memcached \
+        php7.0-zip \ 
+        php7.0-dev \
         sqlite3 \
         libsqlite3-dev \
         git \
@@ -43,6 +42,12 @@ RUN apt-get update && apt-get install -y --force-yes \
         nodejs \
         nodejs-dev \
         npm
+
+ # -------------- moj pear --------------
+ # RUN apt-get install php-pear
+ # RUN pear channel-update pear.php.net 
+ # RUN pear upgrade-all 
+ # --------------------------------------
 
 # Clean up, to free some space
 RUN apt-get clean
@@ -62,6 +67,10 @@ RUN echo "alias phpunit='./vendor/bin/phpunit'" >> ~/.bashrc
 RUN curl -s http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/ \
     && echo "alias composer='/usr/local/bin/composer.phar'" >> ~/.bashrc
+
+# Install the Laravel Installer
+RUN composer.phar global require "laravel/installer" \
+    && echo "export PATH='~/.composer/vendor/bin:$PATH'" >> ~/.bashrc
 
 # Source the bash
 RUN . ~/.bashrc
