@@ -73,7 +73,13 @@ as those are defaults in used official mysql image. For other mysql containers y
 Port is changed to be different from your local phpmyadmin `"8080:80"`. You can access admin panel from `http://192.168.99.100:8080`. You can replace IP with domain by setting `192.168.99.100 myappdomain.app` in hosts file.
 
 
+# Contribute
 
+I plan to add [pgAdmin](https://www.pgadmin.org/) since I started deploying to Heroku.
+
+# Licence
+
+Use this as you wish.
 
 
 
