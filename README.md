@@ -57,7 +57,7 @@ server path: /var/www/laravel_project/app/Http - local path: C:\Users\username\D
 
 Example settings in Netbeans:
 
-![Screenshot 1](http://image.prntscr.com/image/70425c4ffe494e5d8c34dd0129c6919e.png)
+![Screenshot 1](screenshots/paths mappings.png)
 
 # PhpMyAmin
 
