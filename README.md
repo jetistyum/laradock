@@ -70,7 +70,7 @@ environment:
 ```
 as those are defaults in used official mysql image. For other mysql containers you can see them with `docker inspect`.
 
-Port is changed to be different from your local phpmyadmin `"8080:80"`. You can access admin panel from `http://192.168.99.100:8080`. You can replace IP with domain by seting `192.168.99.100 myappdomain.app` in hosts file.
+Port is changed to be different from your local phpmyadmin `"8080:80"`. You can access admin panel from `http://192.168.99.100:8080`. You can replace IP with domain by setting `192.168.99.100 myappdomain.app` in hosts file.
 
 
 
