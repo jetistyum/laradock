@@ -1,4 +1,4 @@
-# my_laradock branch
+# Introduction
 
 This is minimal PHP development environment with xdebug and phpmyadmin which are not present in Laradock at the moment of creating this.
 
@@ -59,7 +59,18 @@ Example settings in Netbeans:
 
 ![Screenshot 1](http://image.prntscr.com/image/70425c4ffe494e5d8c34dd0129c6919e.png)
 
+# PhpMyAmin
 
+I added new container which uses [official phpmyadmin image](https://github.com/phpmyadmin/docker) which you can see in [docker-compose.yml](docker-compose.yml). We use `links: - mysql` to expose environment variables from mysql container to phpmyadmin container. Then we set 
+```
+environment:
+   MYSQL_USER: root
+   MYSQL_PASSWORD: root
+   PMA_HOST: mysql
+```
+as those are defaults in used official mysql image. For other mysql containers you can see them with `docker inspect`.
+
+Port is changed to be different from your local phpmyadmin `"8080:80"`. You can access admin panel from `http://192.168.99.100:8080`. You can replace IP with domain by seting `192.168.99.100 myappdomain.app` in hosts file.
 
 
 
