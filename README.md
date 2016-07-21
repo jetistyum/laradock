@@ -59,7 +59,7 @@ Example settings in Netbeans:
 
 ![Screenshot 1](screenshots/paths mappings.png)
 
-# PhpMyAmin
+# PhpMyAdmin
 
 I added new container which uses [official phpmyadmin image](https://github.com/phpmyadmin/docker) which you can see in [docker-compose.yml](docker-compose.yml). We use `links: - mysql` to expose environment variables from mysql container to phpmyadmin container. Then we set 
 ```
