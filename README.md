@@ -2,7 +2,7 @@
 
 This is minimal PHP development environment with xdebug and phpmyadmin which are not present in Laradock at the moment of creating this.
 
-At this time Laradock is the most complete Docker enviroment for Laravel. However as it has support for rarely used containers like Neo4j with intention of covering them all, it doesn't have some basic tools required for development installed and configured like debugger or database admin. So I felt free to add them.
+At this time Laradock is the most complete Docker environment for Laravel. However as it has support for rarely used containers like Neo4j with intention of covering them all, it doesn't have some basic tools required for development installed and configured like debugger or database admin. So I felt free to add them.
 
 Although there is not much code, this will possibly save you certain amount of time for troubleshooting as this can get tricky. 
 
@@ -25,9 +25,9 @@ Although there is not much code, this will possibly save you certain amount of t
 * mount folder to access logs from host `- ./logs/php-fpm/:/tmp/xdebug_log`
  
 
-### Setting paths mapping in you IDE
+### Setting path mapping in you IDE
 
-As this is remote debugging and IDE and debugger are on separate machines you'll have to supply IP, port and filesystem paths mappings to your IDE.
+As this is remote debugging and IDE and debugger are on separate machines you'll have to supply IP, port and filesystem path mapping to your IDE.
 
 #### IP
 
@@ -42,9 +42,9 @@ Your IDE listens on 2 different ports for debugger connections and those have to
 
 (Don't forget to set back your default (local) port when you wish to debug your local projects again.)
 
-#### Paths mappings
+#### Path mapping
 
-Brief explanation: The point is you map **_folders_** and you map **_absolute filesystem paths_** on _server_ and _local_. Browser url is **_irrelevant_**, it does not matter how you run your code. In IDE enable `stop debugger on first line` for easier troubleshouting.
+Brief explanation: The point is you map **_folders_** and you map **_absolute filesystem paths_** on _server_ and _local_. Browser url is **_irrelevant_**, it does not matter how you run your code. In IDE enable `stop debugger on first line` for easier troubleshooting.
 
 For example to map Laravel entry point use:
 ```
