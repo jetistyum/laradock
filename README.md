@@ -31,7 +31,7 @@ As this is remote debugging and IDE and debugger are on separate machines you'll
 
 #### IP
 
-* you can use loopback `127.0.0.1` or direct VM address `192.168.99.100`. Use `netstat` toot for debugging.
+* you can use loopback `127.0.0.1` or direct VM address `192.168.99.100`. Use `netstat` tool for debugging.
 
 #### Port
 
