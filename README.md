@@ -77,9 +77,7 @@ Port is changed to be different from your local phpmyadmin `"8080:80"`. You can 
 
 I plan to add [pgAdmin](https://www.pgadmin.org/) since I started deploying to Heroku.
 
-# Licence
 
-Use this as you wish.
 
 
 
